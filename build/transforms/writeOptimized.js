@@ -305,7 +305,7 @@ define([
 
 	return function(resource, callback) {
 		if(bc.optimize && !resource.layer){
-			return compile(resource, resource.getText(), resource.pack.copyright, bc.optimize, callback);
+			return compile(resource, resource.getText(), resource.pack ? resource.pack.copyright : bc.copyright, bc.optimize, callback);
 		}else if(bc.layerOptimize && resource.layer && !resource.layer.discard){
 			return compile(resource, resource.layerText, resource.layer.copyright, bc.layerOptimize, callback);
 		}else{
