@@ -23,7 +23,7 @@ define(["../buildControl", "require"], function(bc, require){
 
 	return function(resource, callback) {
 		if(bc.optimize && !resource.layer){
-			return optimizers[bc.optimize](resource, resource.uncompressedText, resource.pack.copyright, bc.optimize, callback);
+			return optimizers[bc.optimize](resource, resource.uncompressedText, resource.pack ? resource.pack.copyright : bc.copyright, bc.optimize, callback);
 		}else if(bc.layerOptimize && resource.layer && !resource.layer.discard){
 			return optimizers[bc.layerOptimize](resource, resource.uncompressedText, resource.layer.copyright, bc.layerOptimize, callback);
 		}else{
